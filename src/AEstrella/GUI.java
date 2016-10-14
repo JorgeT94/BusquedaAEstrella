@@ -15,9 +15,8 @@ import javax.swing.*;
  */
 public class GUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form GUI
-     */
+    int matrizInicial[][];
+    int matrizMeta[][];
     public GUI() {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -71,10 +70,10 @@ public class GUI extends javax.swing.JFrame {
         fin21 = new javax.swing.JTextField();
         fin22 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tabla = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         textArea = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        buscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Método de busqueda A*");
@@ -332,7 +331,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(fin22, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -340,10 +339,10 @@ public class GUI extends javax.swing.JFrame {
                 "Abiertos", "Cerrados"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setResizable(false);
-            jTable2.getColumnModel().getColumn(1).setResizable(false);
+        jScrollPane2.setViewportView(tabla);
+        if (tabla.getColumnModel().getColumnCount() > 0) {
+            tabla.getColumnModel().getColumn(0).setResizable(false);
+            tabla.getColumnModel().getColumn(1).setResizable(false);
         }
 
         textArea.setEditable(false);
@@ -352,7 +351,13 @@ public class GUI extends javax.swing.JFrame {
         textArea.setEditable(false);
         jScrollPane1.setViewportView(textArea);
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\search.png")); // NOI18N
+        buscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\search.png")); // NOI18N
+        buscar.setActionCommand("Buscar");
+        buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
@@ -367,7 +372,7 @@ public class GUI extends javax.swing.JFrame {
                             .addGroup(panelLayout.createSequentialGroup()
                                 .addComponent(puzzleInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(etiquetaPM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -394,7 +399,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(puzzleMeta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGap(56, 56, 56)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
@@ -430,16 +435,58 @@ public class GUI extends javax.swing.JFrame {
         }	
     }//GEN-LAST:event_validarCampo
 
+    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+        if(evt.getActionCommand().equals("Buscar")){
+            bloquearCamposTexto();
+            textArea.setText("");
+            tabla.removeAll();
+            matrizInicial = new int[3][3];
+            matrizMeta = new int[3][3];
+            llenarMatrices(matrizInicial, matrizMeta);
+            BusquedaAEstrella aEstrella = new BusquedaAEstrella(matrizInicial, matrizMeta);
+            
+            desbloquearCamposTexto();
+        }
+    }//GEN-LAST:event_buscarActionPerformed
+
+    public void llenarMatrices(int[][] mI, int[][] mM){
+        mI[0][0]=Integer.parseInt(ini00.getText());mI[0][1]=Integer.parseInt(ini01.getText());mI[0][2]=Integer.parseInt(ini02.getText());
+        mI[1][0]=Integer.parseInt(ini10.getText());mI[1][1]=Integer.parseInt(ini11.getText());mI[1][2]=Integer.parseInt(ini12.getText());
+        mI[2][0]=Integer.parseInt(ini20.getText());mI[2][1]=Integer.parseInt(ini21.getText());mI[2][2]=Integer.parseInt(ini22.getText());
+        
+        mM[0][0]=Integer.parseInt(fin00.getText());mM[0][1]=Integer.parseInt(fin01.getText());mM[0][2]=Integer.parseInt(fin02.getText());
+        mM[1][0]=Integer.parseInt(fin10.getText());mM[1][1]=Integer.parseInt(fin11.getText());mM[1][2]=Integer.parseInt(fin12.getText());
+        mM[2][0]=Integer.parseInt(fin20.getText());mM[2][1]=Integer.parseInt(fin21.getText());mM[2][2]=Integer.parseInt(fin22.getText());
+    }
+    public void bloquearCamposTexto(){
+        ini00.setEditable(false);ini01.setEditable(false);ini02.setEditable(false);
+        ini10.setEditable(false);ini11.setEditable(false);ini12.setEditable(false);
+        ini20.setEditable(false);ini21.setEditable(false);ini22.setEditable(false);
+        
+        fin00.setEditable(false);fin01.setEditable(false);fin02.setEditable(false);
+        fin10.setEditable(false);fin11.setEditable(false);fin12.setEditable(false);
+        fin20.setEditable(false);fin21.setEditable(false);fin22.setEditable(false);
+    }
+    
+    public void desbloquearCamposTexto(){
+        ini00.setEditable(true);ini01.setEditable(true);ini02.setEditable(true);
+        ini10.setEditable(true);ini11.setEditable(true);ini12.setEditable(true);
+        ini20.setEditable(true);ini21.setEditable(true);ini22.setEditable(true);
+        
+        fin00.setEditable(true);fin01.setEditable(true);fin02.setEditable(true);
+        fin10.setEditable(true);fin11.setEditable(true);fin12.setEditable(true);
+        fin20.setEditable(true);fin21.setEditable(true);fin22.setEditable(true);
+    }
     /**
      * @param args the command line arguments
      */
-    //public static void main(String args[]) {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        /*try {
+        try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -454,17 +501,18 @@ public class GUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }*/
+        }
         //</editor-fold>
 
         /* Create and display the form */
-        //java.awt.EventQueue.invokeLater(new Runnable() {
-        //    public void run() {
-        //        new GUI().setVisible(true);
-        //    }
-        //});
-    //}
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new GUI().setVisible(true);
+            }
+        });
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton buscar;
     private java.awt.Label etiquetaPI;
     private java.awt.Label etiquetaPM;
     public javax.swing.JTextField fin00;
@@ -485,13 +533,12 @@ public class GUI extends javax.swing.JFrame {
     public javax.swing.JTextField ini20;
     public javax.swing.JTextField ini21;
     public javax.swing.JTextField ini22;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
     private javax.swing.JPanel panel;
     private javax.swing.JPanel puzzleInicial;
     private javax.swing.JPanel puzzleMeta;
+    public javax.swing.JTable tabla;
     private javax.swing.JTextArea textArea;
     // End of variables declaration//GEN-END:variables
 }
