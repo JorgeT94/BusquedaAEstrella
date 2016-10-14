@@ -6,6 +6,7 @@
 package AEstrella;
 
 //import javax.swing.SwingConstants;
+import com.sun.glass.events.KeyEvent;
 import java.awt.Color;
 import javax.swing.*;
 /**
@@ -18,6 +19,22 @@ public class GUI extends javax.swing.JFrame {
      * Creates new form GUI
      */
     public GUI() {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
         initComponents();
     }
 
@@ -71,38 +88,83 @@ public class GUI extends javax.swing.JFrame {
         ini00.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         ini00.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ini00.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ini00.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         ini12.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         ini12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ini12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ini12.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         ini01.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         ini01.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ini01.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ini01.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         ini22.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         ini22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ini22.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ini22.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         ini11.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         ini11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ini11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ini11.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         ini02.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         ini02.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ini02.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ini02.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         ini10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         ini10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ini10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ini10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         ini21.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         ini21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ini21.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ini21.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         ini20.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         ini20.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ini20.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ini20.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         javax.swing.GroupLayout puzzleInicialLayout = new javax.swing.GroupLayout(puzzleInicial);
         puzzleInicial.setLayout(puzzleInicialLayout);
@@ -151,38 +213,83 @@ public class GUI extends javax.swing.JFrame {
         fin01.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         fin01.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         fin01.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fin01.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         fin00.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         fin00.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         fin00.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fin00.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         fin02.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         fin02.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         fin02.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fin02.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         fin10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         fin10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         fin10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fin10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         fin11.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         fin11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         fin11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fin11.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         fin12.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         fin12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         fin12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fin12.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         fin20.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         fin20.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         fin20.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fin20.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         fin21.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         fin21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         fin21.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fin21.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         fin22.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         fin22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         fin22.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fin22.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validarCampo(evt);
+            }
+        });
 
         javax.swing.GroupLayout puzzleMetaLayout = new javax.swing.GroupLayout(puzzleMeta);
         puzzleMeta.setLayout(puzzleMetaLayout);
@@ -311,16 +418,28 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void validarCampo(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_validarCampo
+        char c=evt.getKeyChar();
+        if(evt.getSource() instanceof JTextField ){
+            if(((JTextField)(evt.getSource())).getText().length()==1)
+                evt.consume(); 
+        }
+        if(!Character.isDigit(c) && c!=KeyEvent.VK_BACKSPACE) { 
+            getToolkit().beep();            
+            evt.consume();            
+        }	
+    }//GEN-LAST:event_validarCampo
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    //public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
+        /*try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -335,38 +454,37 @@ public class GUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        }*/
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUI().setVisible(true);
-            }
-        });
-    }
-
+        //java.awt.EventQueue.invokeLater(new Runnable() {
+        //    public void run() {
+        //        new GUI().setVisible(true);
+        //    }
+        //});
+    //}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Label etiquetaPI;
     private java.awt.Label etiquetaPM;
-    private javax.swing.JTextField fin00;
-    private javax.swing.JTextField fin01;
-    private javax.swing.JTextField fin02;
-    private javax.swing.JTextField fin10;
-    private javax.swing.JTextField fin11;
-    private javax.swing.JTextField fin12;
-    private javax.swing.JTextField fin20;
-    private javax.swing.JTextField fin21;
-    private javax.swing.JTextField fin22;
-    private javax.swing.JTextField ini00;
-    private javax.swing.JTextField ini01;
-    private javax.swing.JTextField ini02;
-    private javax.swing.JTextField ini10;
-    private javax.swing.JTextField ini11;
-    private javax.swing.JTextField ini12;
-    private javax.swing.JTextField ini20;
-    private javax.swing.JTextField ini21;
-    private javax.swing.JTextField ini22;
+    public javax.swing.JTextField fin00;
+    public javax.swing.JTextField fin01;
+    public javax.swing.JTextField fin02;
+    public javax.swing.JTextField fin10;
+    public javax.swing.JTextField fin11;
+    public javax.swing.JTextField fin12;
+    public javax.swing.JTextField fin20;
+    public javax.swing.JTextField fin21;
+    public javax.swing.JTextField fin22;
+    public javax.swing.JTextField ini00;
+    public javax.swing.JTextField ini01;
+    public javax.swing.JTextField ini02;
+    public javax.swing.JTextField ini10;
+    public javax.swing.JTextField ini11;
+    public javax.swing.JTextField ini12;
+    public javax.swing.JTextField ini20;
+    public javax.swing.JTextField ini21;
+    public javax.swing.JTextField ini22;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
