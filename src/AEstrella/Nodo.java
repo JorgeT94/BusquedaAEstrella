@@ -5,9 +5,11 @@
  */
 package AEstrella;
 
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
 public class Nodo {
     private int[][] elemento = new int[3][3];
-    private int valorH;
+    private int valorH;//distancia manhattan
     
     // Constructor
     public Nodo(int[][] e){
@@ -39,10 +41,29 @@ public class Nodo {
         return valorH;
     }
     
-    // Este método calcula el Valor Heurístico del nodo
+    // Este método calcula el Valor Heurístico Manhattan del nodo
     private int calcularValorH(int[][] m){
-        int valor = 0;
-        return valor;
+        double valor=-1;
+        if(BusquedaAEstrella.meta!=null){//primer nodo   
+            valor=0;
+        for (int i=0; i < m.length; i++){
+            for (int j=0; j < m[i].length; j++){
+                if(m[i][j]!=BusquedaAEstrella.meta.elemento[i][j] && m[i][j]!=0){
+                //Buscamos la posición correcta para la ficha en puzzle[i][j]
+                int i2=0, j2=0;
+                while(i2<m.length && (m[i2][j2]!=BusquedaAEstrella.meta.elemento[i][j])){
+                    j2++;
+                    if (j2 >= m[i2].length) {
+                        i2++; j2=0;
+                    }
+                }
+                //En [i2][j2] está la posición correcta
+                valor+=Math.abs(i2-i)+Math.abs(j2-j);
+                }
+            }
+        }
+        System.out.println("Manhattan " +valor);}   
+        return (int)valor;
     }
     
     // Este método regresa en forma de String el elemento del nodo (la matriz)

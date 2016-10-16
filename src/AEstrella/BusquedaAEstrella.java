@@ -10,7 +10,7 @@ import java.util.*;
 public class BusquedaAEstrella {
     private Vector<Nodo> visitados;
     Nodo raiz;
-    Nodo meta;
+    static Nodo meta;
     int totalNivel;
     int distanciaActual;
     
@@ -18,12 +18,15 @@ public class BusquedaAEstrella {
     public BusquedaAEstrella(int[][] mI, int[][] mM){
         raiz = new Nodo(mI);
         meta = new Nodo(mM);
+  //      Nodo test= new Nodo(mI);
         totalNivel = 1;
         distanciaActual = 0;
         visitados = new Vector<Nodo>();
         iniciaBusqueda(raiz, meta);
         System.out.println(raiz.toString());
         System.out.println(meta.toString());
+        
+  //              System.out.println(test.getValorH());
     }
     
     // Este método es el algoritmo de busqueda de A*
