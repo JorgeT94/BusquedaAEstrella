@@ -14,9 +14,12 @@ import javax.swing.*;
  * @author Usuario
  */
 public class GUI extends javax.swing.JFrame {
-
     int matrizInicial[][];
     int matrizMeta[][];
+	char [] NM1= new char [9];
+	char [] NM2= new char [9];
+	int contador1= 0;
+	int contador2=0;
     public GUI() {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -45,7 +48,6 @@ public class GUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
         panel = new javax.swing.JPanel();
         etiquetaPI = new java.awt.Label();
         etiquetaPM = new java.awt.Label();
@@ -87,9 +89,14 @@ public class GUI extends javax.swing.JFrame {
         ini00.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         ini00.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ini00.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ini00.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ini00ActionPerformed(evt);
+            }
+        });
         ini00.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'1');
             }
         });
 
@@ -98,16 +105,21 @@ public class GUI extends javax.swing.JFrame {
         ini12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ini12.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'1');
             }
         });
 
         ini01.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         ini01.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ini01.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ini01.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ini01ActionPerformed(evt);
+            }
+        });
         ini01.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'1');
             }
         });
 
@@ -116,7 +128,7 @@ public class GUI extends javax.swing.JFrame {
         ini22.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ini22.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'1');
             }
         });
 
@@ -125,7 +137,7 @@ public class GUI extends javax.swing.JFrame {
         ini11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ini11.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'1');
             }
         });
 
@@ -134,7 +146,7 @@ public class GUI extends javax.swing.JFrame {
         ini02.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ini02.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'1');
             }
         });
 
@@ -143,7 +155,7 @@ public class GUI extends javax.swing.JFrame {
         ini10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ini10.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'1');
             }
         });
 
@@ -152,7 +164,7 @@ public class GUI extends javax.swing.JFrame {
         ini21.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ini21.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'1');
             }
         });
 
@@ -161,7 +173,7 @@ public class GUI extends javax.swing.JFrame {
         ini20.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ini20.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'1');
             }
         });
 
@@ -214,16 +226,21 @@ public class GUI extends javax.swing.JFrame {
         fin01.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fin01.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'2');
             }
         });
 
         fin00.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         fin00.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         fin00.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fin00.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fin00ActionPerformed(evt);
+            }
+        });
         fin00.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'2');
             }
         });
 
@@ -232,7 +249,7 @@ public class GUI extends javax.swing.JFrame {
         fin02.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fin02.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'2');
             }
         });
 
@@ -241,7 +258,7 @@ public class GUI extends javax.swing.JFrame {
         fin10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fin10.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'2');
             }
         });
 
@@ -250,7 +267,7 @@ public class GUI extends javax.swing.JFrame {
         fin11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fin11.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'2');
             }
         });
 
@@ -259,7 +276,7 @@ public class GUI extends javax.swing.JFrame {
         fin12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fin12.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'2');
             }
         });
 
@@ -268,7 +285,7 @@ public class GUI extends javax.swing.JFrame {
         fin20.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fin20.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'2');
             }
         });
 
@@ -277,7 +294,7 @@ public class GUI extends javax.swing.JFrame {
         fin21.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fin21.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'2');
             }
         });
 
@@ -286,7 +303,7 @@ public class GUI extends javax.swing.JFrame {
         fin22.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fin22.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                validarCampo(evt);
+                validarCampo(evt,'2');
             }
         });
 
@@ -351,7 +368,6 @@ public class GUI extends javax.swing.JFrame {
         textArea.setEditable(false);
         jScrollPane1.setViewportView(textArea);
 
-        buscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\search.png")); // NOI18N
         buscar.setActionCommand("Buscar");
         buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -423,16 +439,39 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void validarCampo(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_validarCampo
+    private void validarCampo(java.awt.event.KeyEvent evt, char x) {//GEN-FIRST:event_validarCampo
         char c=evt.getKeyChar();
+        boolean repetido=false;
+        if(x=='1'){
+        	for(int i=0;i<contador1;i++){
+            	if(NM1[i]==c){
+              		repetido=true;
+           		}
+       		}
+        }else{
+        	for(int i=0;i<contador2;i++){
+            	if(NM2[i]==c){
+              		repetido=true;
+           		}
+       		}
+        }
         if(evt.getSource() instanceof JTextField ){
             if(((JTextField)(evt.getSource())).getText().length()==1)
                 evt.consume(); 
         }
-        if(!Character.isDigit(c) && c!=KeyEvent.VK_BACKSPACE) { 
+        if(!Character.isDigit(c) && c!=KeyEvent.VK_BACKSPACE || repetido) { 
             getToolkit().beep();            
-            evt.consume();            
-        }	
+            evt.consume();
+        }else{
+        	if(x=='1'){        		
+	            NM1[contador1]=c;
+	            contador1++;
+        	}else{
+        		NM2[contador2]=c;
+	            contador2++;
+        	}
+        }
+       
     }//GEN-LAST:event_validarCampo
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
@@ -449,11 +488,23 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buscarActionPerformed
 
+    private void ini00ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ini00ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ini00ActionPerformed
+
+    private void fin00ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fin00ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fin00ActionPerformed
+
+    private void ini01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ini01ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ini01ActionPerformed
+
     public void llenarMatrices(int[][] mI, int[][] mM){
         mI[0][0]=Integer.parseInt(ini00.getText());mI[0][1]=Integer.parseInt(ini01.getText());mI[0][2]=Integer.parseInt(ini02.getText());
         mI[1][0]=Integer.parseInt(ini10.getText());mI[1][1]=Integer.parseInt(ini11.getText());mI[1][2]=Integer.parseInt(ini12.getText());
         mI[2][0]=Integer.parseInt(ini20.getText());mI[2][1]=Integer.parseInt(ini21.getText());mI[2][2]=Integer.parseInt(ini22.getText());
-        
+
         mM[0][0]=Integer.parseInt(fin00.getText());mM[0][1]=Integer.parseInt(fin01.getText());mM[0][2]=Integer.parseInt(fin02.getText());
         mM[1][0]=Integer.parseInt(fin10.getText());mM[1][1]=Integer.parseInt(fin11.getText());mM[1][2]=Integer.parseInt(fin12.getText());
         mM[2][0]=Integer.parseInt(fin20.getText());mM[2][1]=Integer.parseInt(fin21.getText());mM[2][2]=Integer.parseInt(fin22.getText());
